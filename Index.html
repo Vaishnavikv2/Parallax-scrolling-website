@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax Scrolling Website</title>
+    <link rel="stylesheet" href="Index.css" />
+  </head>
+  <body>
+    <header id="header">
+      <a href="#" class="logo">Vaishu_sdvk</a>
+      <ul>
+        <li><a href="#" class="active">Home </a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </header>
+    <section>
+      <h2 id="text"><span>It's time for new adventure</span><br />Adventure</h2>
+
+      <a href="#" id="btn1">Explore</a>
+    </section>
+    <img src="Untitled (2).png" alt="down" id="down" />
+    <img src="back.jpg" alt="back" id="back" />
+    <div class="sec">
+      <h2>Unleash Your Adventurous Spirit</h2>
+      <p>
+        Welcome to a world of endless possibilities and thrilling experiences.
+        If you're seeking an adrenaline rush and a chance to explore
+        breathtaking landscapes, our adventure tours are tailor-made for you.
+        Get ready to unleash your adventurous spirit and discover the wonders
+        that await. Picture yourself standing on the edge of a majestic
+        mountain, the wind blowing through your hair as you prepare to conquer
+        its challenging trails. Hiking enthusiasts will find their haven here,
+        with a wide range of trails catering to all skill levels. From leisurely
+        strolls amidst lush forests to heart-pounding treks to towering peaks,
+        every step offers a chance to connect with nature and test your limits.
+        For those who crave a splash of excitement, our water-based adventures
+        will leave you exhilarated. Brace yourself for an unforgettable
+        white-water rafting expedition, where you'll navigate through roaring
+        rapids and feel the rush of the river. Feel the spray of crystal-clear
+        water on your face as you conquer each twist and turn, and embrace the
+        teamwork and camaraderie that come with conquering nature's forces. If
+        you've ever dreamed of taking flight and soaring above the world,
+        paragliding is your ticket to an unparalleled experience. Feel the
+        freedom as you glide through the air, taking in panoramic views of
+        breathtaking landscapes below. Whether you're a seasoned paragliding
+        enthusiast or a first-time flyer, our experienced instructors will
+        ensure your safety and guide you through an awe-inspiring adventure
+        you'll never forget. But adventure is not just limited to land and air;
+        the vast blue oceans offer their own set of wonders. Dive into the
+        depths of the sea and witness a vibrant underwater world teeming with
+        marine life. Snorkeling or scuba diving in pristine coral reefs will
+        reveal a kaleidoscope of colors and introduce you to a whole new realm
+        of beauty and tranquility. Our team of expert guides are passionate
+        about adventure and dedicated to making your journey unforgettable. They
+        possess an in-depth knowledge of the local terrain, culture, and
+        history, adding a layer of depth to your exploration. With their
+        guidance, you'll not only discover stunning landscapes but also gain
+        insights into the rich heritage and traditions that make each
+        destination unique. So pack your bags, leave the ordinary behind, and
+        embrace the extraordinary. Get ready to create memories that will last a
+        lifetime as you embark on an adventure that will ignite your spirit of
+        exploration and leave you longing for more.
+      </p>
+    </div>
+    <script>
+      let text = document.getElementById("text");
+      let back = document.getElementById("back");
+      let down = document.getElementById("down");
+      let btn = document.getElementById("btn1");
+      let header = document.getElementById("header");
+
+      window.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        text.style.marginTop = value * 1.5 + "px";
+        btn.style.marginTop = value * 1.5 + "px";
+        header.style.top = value * 0.5 + "px";
+        down.style.top = value * -0.12 + "px";
+      });
+    </script>
+    <div class="body1">
+      <div class="img-slider">
+        <div class="slide active">
+          <img src="pic8.jpeg" alt="" />
+          <div class="info">
+            <h2>Adventure Awaits</h2>
+            <p>
+              Experience the thrill of exploring breathtaking landscapes,
+              conquering challenging trails, and immersing yourself in the
+              wonders of nature.
+            </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="pic9.jpeg" alt="" />
+          <div class="info">
+            <h2>Discover the Unknown</h2>
+            <p>
+              Dive into a world of mystery and wonder as you uncover hidden
+              treasures and unravel the secrets of ancient civilizations. Let
+              your curiosity guide you as you embark on an adventure of a
+              lifetime.
+            </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="pic6.jpeg" alt="" />
+          <div class="info">
+            <h2>Thrilling Expeditions</h2>
+            <p>
+              Brace yourself for heart-pounding expeditions that push your
+              limits and test your courage. From white-water rafting through
+              roaring rapids to scaling towering peaks, experience the
+              exhilaration of conquering nature's challenges.
+            </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="pic7.jpeg" alt="" />
+          <div class="info">
+            <h2>Awe-Inspiring Landscapes</h2>
+            <p>
+              Immerse yourself in the beauty of breathtaking landscapes that
+              will leave you in awe. From cascading waterfalls to serene
+              mountaintop vistas, let the splendor of nature captivate your
+              senses and inspire your soul.
+            </p>
+          </div>
+        </div>
+        <div class="navigation">
+          <div class="btn active"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var slides = document.querySelectorAll(".slide");
+        var btns = document.querySelectorAll(".btn");
+        let currentSlide = 1;
+        var manualNav = function (manual) {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          btns.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          slides[manual].classList.add("active");
+          btns[manual].classList.add("active");
+        };
+        btns.forEach((btn, i) => {
+          btn.addEventListener("click", () => {
+            manualNav(i);
+            currentSlide = i;
+          });
+        });
+
+        var repeat = function (activeclass) {
+          let active = document.getElementsByClassName("active");
+          let i = 1;
+          var repeater = () => {
+            setTimeout(function () {
+              [...active].forEach((activeSlide) => {
+                activeSlide.classList.remove();
+              });
+              slides[i].classList.add("active");
+              btns[i].classList.add("active");
+              i++;
+              if (slides.length == i) {
+                i = 0;
+              }
+              if (i >= slides.length) {
+                return;
+              }
+              repeater();
+            }, 3000);
+          };
+          repeater();
+        };
+        repeat();
+      </script>
+    </div>
+  </body>
+</html>
